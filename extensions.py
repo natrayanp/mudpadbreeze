@@ -16,11 +16,11 @@ class Neo4j:
 
     def connect(self):
         if not self.conn:
-            self.conn = psycopg2.connect(user="postgres",
-                                        password="password123",
-                                        host="localhost",
+            self.conn = psycopg2.connect(user="ygdoxirqgewzve",
+                                        password="548fe504f135b247f31f07ff600f13b0872f6ba090e37c7a8b3fe70a2906dcac",
+                                        host="ec2-44-195-100-240.compute-1.amazonaws.com",
                                         port="5432",
-                                        database="postgres")     
+                                        database="da7c1a57qlqb5n")     
         return self.conn
 
     def initbreeze(self):
