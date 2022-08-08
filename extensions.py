@@ -1,5 +1,6 @@
 import psycopg2
 from breeze_connect import BreezeConnect
+from os import environ, path
 
 
 class Neo4j:
@@ -16,16 +17,12 @@ class Neo4j:
 
     def connect(self):
         if not self.conn:
-            self.conn = psycopg2.connect(user="ygdoxirqgewzve",
-                                        password="548fe504f135b247f31f07ff600f13b0872f6ba090e37c7a8b3fe70a2906dcac",
-                                        host="ec2-44-195-100-240.compute-1.amazonaws.com",
-                                        port="5432",
-                                        database="da7c1a57qlqb5n")     
+            self.conn = psycopg2.connect(environ.get('DATABASE_URL'))
         return self.conn
 
     def initbreeze(self):
         if not self.breeze:
-            self.breeze = BreezeConnect(api_key = "16)3W5i10$108kn5W16153162~t339j0")
+            self.breeze = BreezeConnect(api_key = "16)3W5i10$108kn5W16153162~t339j0")        
         cursor = self.conn.cursor()
         cursor.execute("SELECT apisession from mp.session;")
         record = cursor.fetchone()
