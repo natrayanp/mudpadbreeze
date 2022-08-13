@@ -1,7 +1,7 @@
 import psycopg2
 from breeze_connect import BreezeConnect
 from os import environ, path
-
+import sys
 
 class Neo4j:
     def __init__(self):
@@ -27,6 +27,7 @@ class Neo4j:
         cursor.execute("SELECT apisession from mp.session;")
         record = cursor.fetchone()
         print("You are connected to - ", record, "\n")
+        sys.stdout.flush()
         print(record[0])
         cursor.close
         self.breeze.generate_session(api_secret="_35993o671I841=378H5831560O67*77", 
